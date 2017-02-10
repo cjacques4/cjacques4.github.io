@@ -1,4 +1,4 @@
-/* fonction quon appel pour charger les API*/
+/* fonction quon appel pour charger les API
 function homePageLoading() {
   
     fonctionRequeteApi("https://api.blockcypher.com/v1/btc/main", "info");
@@ -7,7 +7,7 @@ function homePageLoading() {
     fonctionRequeteApi("http://bitcoin.mubiz.com/blockchaininfo", "blockchaininfo");   
 }
 
-/* fonction pour integrer l'API*/
+/* fonction pour integrer l'API
 function fonctionRequeteApi(url,elementID)
 {
     var xmlhttp = new XMLHttpRequest();
@@ -20,8 +20,8 @@ function fonctionRequeteApi(url,elementID)
     };
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
-}
-/*
+} 
+
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
@@ -31,7 +31,7 @@ document.getElementById("demo").innerHTML = jsonPretty;
 }
 };
 xmlhttp.open("GET", "https://api.blockcypher.com/v1/btc/main", true);
-xmlhttp.send(); 
+xmlhttp.send(); */
 
 var xmlhttp1 = new XMLHttpRequest();
 xmlhttp1.onreadystatechange = function() {
@@ -75,4 +75,4 @@ document.getElementById("demo4").innerHTML = jsonPretty;
 }
 };
 xmlhttp4.open("GET", "http://bitcoin.mubiz.com/peerinfo", true);
-xmlhttp4.send(); */
+xmlhttp4.send(); 
