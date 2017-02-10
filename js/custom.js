@@ -1,4 +1,4 @@
-/* fonction quon appel pour charger les API
+/*// fonction quon appel pour charger les API
 function homePageLoading() {
   
     fonctionRequeteApi("https://api.blockcypher.com/v1/btc/main", "info");
@@ -7,7 +7,7 @@ function homePageLoading() {
     fonctionRequeteApi("http://bitcoin.mubiz.com/blockchaininfo", "blockchaininfo");   
 }
 
-/* fonction pour integrer l'API
+// fonction pour integrer l'API
 function fonctionRequeteApi(url,elementID)
 {
     var xmlhttp = new XMLHttpRequest();
@@ -20,25 +20,15 @@ function fonctionRequeteApi(url,elementID)
     };
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
-} 
+} */
 
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-if (this.readyState == 4 && this.status == 200) {
-var myObj = this.responseText;
-var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
-document.getElementById("demo").innerHTML = jsonPretty;
-}
-};
-xmlhttp.open("GET", "https://api.blockcypher.com/v1/btc/main", true);
-xmlhttp.send(); */
 
 var xmlhttp1 = new XMLHttpRequest();
 xmlhttp1.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
 var myObj = this.responseText;
 var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
-document.getElementById("demo1").innerHTML = jsonPretty;
+document.getElementById("info").innerHTML = jsonPretty;
 }
 };
 xmlhttp1.open("GET", "http://bitcoin.mubiz.com/info", true);
@@ -49,7 +39,7 @@ xmlhttp2.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
 var myObj = this.responseText;
 var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
-document.getElementById("demo2").innerHTML = jsonPretty;
+document.getElementById("peerinfo").innerHTML = jsonPretty;
 }
 };
 xmlhttp2.open("GET", "http://bitcoin.mubiz.com/blockchaininfo", true);
@@ -60,7 +50,7 @@ xmlhttp3.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
 var myObj = this.responseText;
 var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
-document.getElementById("demo3").innerHTML = jsonPretty;
+document.getElementById("mininginfo").innerHTML = jsonPretty;
 }
 };
 xmlhttp3.open("GET", "http://bitcoin.mubiz.com/mininginfo", true);
@@ -71,7 +61,7 @@ xmlhttp4.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
 var myObj = this.responseText;
 var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
-document.getElementById("demo4").innerHTML = jsonPretty;
+document.getElementById("blockchaininfo").innerHTML = jsonPretty;
 }
 };
 xmlhttp4.open("GET", "http://bitcoin.mubiz.com/peerinfo", true);
