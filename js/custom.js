@@ -1,7 +1,7 @@
 // fonction qu'on appelle pour charger les API
 function homePageLoading() {
   
-    fonctionRequeteApi("https://api.blockcypher.com/v1/btc/main", "info");
+    fonctionRequeteApi("http://api.blockcypher.com/v1/btc/main", "info");
     fonctionRequeteApi("http://bitcoin.mubiz.com/peerinfo","peerinfo");
     fonctionRequeteApi("http://bitcoin.mubiz.com/mininginfo", "mininginfo");
     fonctionRequeteApi("http://bitcoin.mubiz.com/blockchaininfo", "blockchaininfo");   
