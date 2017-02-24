@@ -1,4 +1,4 @@
-// fonction qu'on appelle pour charger les API
+/*// fonction qu'on appelle pour charger les API
 function homePageLoading() {
   
     fonctionRequeteApi("https://api.blockcypher.com/v1/btc/main", "info");
@@ -20,9 +20,9 @@ function fonctionRequeteApi(url,elementID)
     };
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
-}  
+}  */
 
-/*
+
 var xmlhttp1 = new XMLHttpRequest();
 xmlhttp1.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
@@ -65,4 +65,4 @@ document.getElementById("blockchaininfo").innerHTML = jsonPretty;
 }
 };
 xmlhttp4.open("GET", "http://bitcoin.mubiz.com/peerinfo", true);
-xmlhttp4.send(); */
+xmlhttp4.send(); 
