@@ -27,7 +27,7 @@ xmlhttp.send();
 
 function SendData()
 {
-    document.getElementedById(resultat).innerHTML="coucou";
+    document.getElementedById("resultat").innerHTML="coucou";
 }
 
 function GetData(){
