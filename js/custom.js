@@ -1,13 +1,4 @@
-// fonction qu'on appelle pour charger les API
-function homePageLoading() {
-  
-    fonctionRequeteApi("https://api.blockcypher.com/v1/btc/main","info");
-    fonctionRequeteApi("https://bitcoin.mubiz.com/peerinfo","peerinfo");
-    fonctionRequeteApi("https://bitcoin.mubiz.com/mininginfo","mininginfo");
-    fonctionRequeteApi("https://bitcoin.mubiz.com/blockchaininfo","blockchaininfo");   
-}
-
-// fonction pour integrer l'API
+/* fonction pour integrer l'API*/
 function fonctionRequeteApi(url,elementID)
 {
     var xmlhttp = new XMLHttpRequest();
@@ -15,7 +6,7 @@ function fonctionRequeteApi(url,elementID)
         if (this.readyState == 4 && this.status == 200) {
             var myObj = this.responseText;
             var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
-            document.getElementById(elementID).innerHTML = jsonPretty;
+             document.getElementById(elementID).innerHTML = jsonPretty;
             
             output(jsonPretty,elementID);
             output(syntaxHighlight(jsonPretty),elementID);
@@ -23,24 +14,42 @@ function fonctionRequeteApi(url,elementID)
     };
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
-}  
+
+}
+
+/* fonction quon appel pour charger les API*/
+function homePageLoading() {
+  
+    fonctionRequeteApi("https://api.blockcypher.com/v1/btc/main", "info");
+    fonctionRequeteApi("https://bitcoin.mubiz.com/peerinfo","peerinfo");
+    fonctionRequeteApi("https://bitcoin.mubiz.com/mininginfo", "mininginfo");
+    fonctionRequeteApi("https://bitcoin.mubiz.com/blockchaininfo", "blockchaininfo");   
+}
+
+/*Fonction pour recuperer et afficher les valeurs saisie par le formulaire*/
 
 function SendData()
 {
-    document.getElementedById("resultat").innerHTML="coucou";
-}
-
-function GetData(){
-    var adresse = document.getElementById("adresse").value;
-    var api = document.getElementById("api").value;
-    api = api.concat("/");
-
-    var url = adresse.concat("/");
-    url = url.concat(api);
-
-    //fonctionRequeteApi(url,"resultat")
-document.getElementById("resultat").innerHTM = "coucou";
-
+    /*name */
+    var api=document.getElementById("select_api").value;
+    var adresse = "https://bitcoin.mubiz.com/"
+    var url= adresse.concat(api);
+    fonctionRequeteApi(url,"resultat");
+    
+    /*hash*/
+    var hash =document.getElementById("select_hash").value;
+    var adresse_hash = "https://api.blockcypher.com/v1/btc/main/blocks/"
+    var url_hash= adresse_hash.concat(hash);
+    fonctionRequeteApi(url_hash,"resultathash");
+    
+    
+    /*index*/
+    var index =document.getElementById("select_index").value;
+    var get_index = "/block_index/"
+    var tmp = get_index.concat(index);
+    var url_index = adresse.concat(tmp);
+    url_index = url_index.concat("/");
+    fonctionRequeteApi(url_index,"resultatindex")
 }
 function output(inp, elementID) {
     //document.body.appendChild(document.createElement('pre')).innerHTML = inp;
@@ -48,7 +57,7 @@ function output(inp, elementID) {
 }
 
 function syntaxHighlight(json) {
-    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').rep00lace(/>/g, '&gt;');
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
         var cls = 'number';
         if (/^"/.test(match)) {
@@ -65,47 +74,7 @@ function syntaxHighlight(json) {
         return '<span class="' + cls + '">' + match + '</span>';
     });
 }
-/*
-var xmlhttp1 = new XMLHttpRequest();
-xmlhttp1.onreadystatechange = function() {
-if (this.readyState == 4 && this.status == 200) {
-var myObj = this.responseText;
-var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
-document.getElementById("info").innerHTML = jsonPretty;
-}
-};
-xmlhttp1.open("GET", "http://bitcoin.mubiz.com/info", true);
-xmlhttp1.send();
 
-var xmlhttp2 = new XMLHttpRequest();
-xmlhttp2.onreadystatechange = function() {
-if (this.readyState == 4 && this.status == 200) {
-var myObj = this.responseText;
-var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
-document.getElementById("peerinfo").innerHTML = jsonPretty;
-}
-};
-xmlhttp2.open("GET", "http://bitcoin.mubiz.com/blockchaininfo", true);
-xmlhttp2.send();
 
-var xmlhttp3 = new XMLHttpRequest();
-xmlhttp3.onreadystatechange = function() {
-if (this.readyState == 4 && this.status == 200) {
-var myObj = this.responseText;
-var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
-document.getElementById("mininginfo").innerHTML = jsonPretty;
-}
-};
-xmlhttp3.open("GET", "http://bitcoin.mubiz.com/mininginfo", true);
-xmlhttp3.send();
 
-var xmlhttp4 = new XMLHttpRequest();
-xmlhttp4.onreadystatechange = function() {
-if (this.readyState == 4 && this.status == 200) {
-var myObj = this.responseText;
-var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
-document.getElementById("blockchaininfo").innerHTML = jsonPretty;
-}
-};
-xmlhttp4.open("GET", "http://bitcoin.mubiz.com/peerinfo", true);
-xmlhttp4.send(); */
+
