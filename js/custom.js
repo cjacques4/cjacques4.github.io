@@ -31,7 +31,7 @@ function GetData(){
     url = url.concat(api);
 
     //fonctionRequeteApi(url,"resultat")
-document.getElementById("resultat").innerHTM = urL;
+document.getElementById("resultat").innerHTM = "coucou";
 
 }
 
