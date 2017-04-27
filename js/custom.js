@@ -1,10 +1,10 @@
 // fonction qu'on appelle pour charger les API
 function homePageLoading() {
   
-    fonctionRequeteApi("http://api.blockcypher.com/v1/btc/main", "info");
-    fonctionRequeteApi("http://bitcoin.mubiz.com/peerinfo","peerinfo");
-    fonctionRequeteApi("http://bitcoin.mubiz.com/mininginfo", "mininginfo");
-    fonctionRequeteApi("http://bitcoin.mubiz.com/blockchaininfo", "blockchaininfo");   
+    fonctionRequeteApi("https://api.blockcypher.com/v1/btc/main", "info");
+    fonctionRequeteApi("https://bitcoin.mubiz.com/peerinfo","peerinfo");
+    fonctionRequeteApi("https://bitcoin.mubiz.com/mininginfo", "mininginfo");
+    fonctionRequeteApi("https://bitcoin.mubiz.com/blockchaininfo", "blockchaininfo");   
 }
 
 // fonction pour integrer l'API
@@ -21,6 +21,19 @@ function fonctionRequeteApi(url,elementID)
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 }  
+
+function GetData(){
+    var adresse = document.getElementById("adresse").value;
+    var api = document.getElementById("api").value;
+    api = api.concat("/");
+
+    var url = adresse.concat("/");
+    url = url.concat(api);
+
+    fonctionRequeteApi(url,"resultat")
+
+
+}
 
 /*
 var xmlhttp1 = new XMLHttpRequest();
