@@ -18,7 +18,7 @@ function fonctionRequeteApi(url,elementID)
             document.getElementById(elementID).innerHTML = jsonPretty;
             
             output(jsonPretty,elementID);
-            output(syntaxHighlight(jsonPretty),elementID)
+            output(syntaxHighlight(jsonPretty),elementID);
         }
     };
 xmlhttp.open("GET", url, true);
