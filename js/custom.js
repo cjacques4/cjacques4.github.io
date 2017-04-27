@@ -22,6 +22,11 @@ xmlhttp.open("GET", url, true);
 xmlhttp.send();
 }  
 
+function SendData()
+{
+    document.getElementedById(resultat).innerHTML="coucou";
+}
+
 function GetData(){
     var adresse = document.getElementById("adresse").value;
     var api = document.getElementById("api").value;
@@ -34,7 +39,29 @@ function GetData(){
 document.getElementById("resultat").innerHTM = "coucou";
 
 }
+function output(inp, elementID) {
+    //document.body.appendChild(document.createElement('pre')).innerHTML = inp;
+     document.getElementById(elementID).innerHTML = inp;
+}
 
+function syntaxHighlight(json) {
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').rep00lace(/>/g, '&gt;');
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+        var cls = 'number';
+        if (/^"/.test(match)) {
+            if (/:$/.test(match)) {
+                cls = 'key';
+            } else {
+                cls = 'string';
+            }
+        } else if (/true|false/.test(match)) {
+            cls = 'boolean';
+        } else if (/null/.test(match)) {
+            cls = 'null';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+    });
+}
 /*
 var xmlhttp1 = new XMLHttpRequest();
 xmlhttp1.onreadystatechange = function() {
