@@ -16,6 +16,9 @@ function fonctionRequeteApi(url,elementID)
             var myObj = this.responseText;
             var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
             document.getElementById(elementID).innerHTML = jsonPretty;
+            
+            output(jsonPretty,elementID);
+            output(syntaxHighlight(jsonPretty),elementID)
         }
     };
 xmlhttp.open("GET", url, true);
