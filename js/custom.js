@@ -30,8 +30,8 @@ function GetData(){
     var url = adresse.concat("/");
     url = url.concat(api);
 
-    fonctionRequeteApi(url,"resultat")
-
+    //fonctionRequeteApi(url,"resultat")
+document.getElementById("resultat").innerHTM = urL;
 
 }
 
